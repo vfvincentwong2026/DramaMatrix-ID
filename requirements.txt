@@ -1,18 +1,18 @@
 # ==========================================
 # DramaMatrix ID - Core Dependencies
-# 印尼短剧自动化混剪与矩阵分发系统依赖
+# 印尼短剧本地化剪辑与发布辅助工具依赖（规划中）
 # ==========================================
 
 # 1. 视频处理与音频合成 (Video & Audio Processing)
-ffmpeg-python>=0.2.0          # FFmpeg Python 胶水层，用于快速混剪、镜像、调色与变速
+ffmpeg-python>=0.2.0          # FFmpeg Python 胶水层，用于剪辑、调色与字幕
 edge-tts>=6.1.9               # 微软 Edge-TTS 免费印尼语语音合成 (id-ID-ArdiNeural / id-ID-GadisNeural)
 moviepy>=1.0.3                # 辅助视频剪辑与文本字幕特效合成
-imagehash>=4.3.1              # pHash 感知哈希计算，用于去重守卫 (Dedup Guard)
+imagehash>=4.3.1              # pHash 感知哈希，用于相似度提示与质检
 Pillow>=10.0.0                # 图像处理（帧提取与质量校验）
 
-# 2. 自动化矩阵分发与防风控 (Browser Automation & Anti-Detect)
-playwright>=1.40.0            # 自动化浏览器控机，用于模拟人类发布视频至 TikTok/Shopee
-requests>=2.31.0              # 用于对接指纹浏览器 API (如 AdsPower) 和代理池
+# 2. 发布辅助 (Publishing assistant; 人工审核后经官方接口发布)
+playwright>=1.40.0            # 浏览器自动化（仅用于本地测试与官方工具辅助，不做无人值守发布）
+requests>=2.31.0              # 调用平台官方 API
 urllib3>=2.0.0
 
 # 3. AI 辅助与语音转文字 (AI & Transcription)
@@ -24,6 +24,6 @@ streamlit>=1.28.0             # 极简 Web 控制台，方便 OPC 客户拖拽�
 pandas>=2.1.0                 # 素材点击率 (CTR) 与投流数据分析
 
 # 5. 系统工具与环境变量 (System Utilities)
-python-dotenv>=1.0.0          # 加载 .env 配置文件 (包含印尼静态代理 IP 与 Token)
+python-dotenv>=1.0.0          # 加载 .env 配置文件 (API Token 等)
 pydantic>=2.5.0               # 配置与数据模型校验
 tqdm>=4.66.0                  # 批量处理进度条显示
